@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="bn"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#062116"><meta name="robots" content="noindex,nofollow">
+<title>Admin · Green Social Services</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23e51e45'/%3E%3Cpath d='M32 12c8 11 14 18 14 26a14 14 0 0 1-28 0c0-8 6-15 14-26z' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin.css"><script defer src="/admin.js"></script>
+</head><body>
+
+<section id="loginView" class="login-screen">
+  <form id="loginForm" class="login-card">
+    <div class="login-icon"><svg viewBox="0 0 24 24"><path d="M12 2.5c3.6 4.9 6.5 8.2 6.5 11.9a6.5 6.5 0 0 1-13 0c0-3.7 2.9-7 6.5-11.9z"/></svg></div>
+    <span class="eyebrow">SECURE ADMIN ACCESS</span>
+    <h2>অ্যাডমিন লগইন</h2>
+    <p>ক্লাবের ব্যবস্থাপনা প্যানেলে প্রবেশ করুন।</p>
+    <label>ইউজারনেম<input name="username" required autocomplete="username" autofocus></label>
+    <label>পাসওয়ার্ড<span class="pw"><input name="password" id="loginPw" type="password" required autocomplete="current-password"><button type="button" class="eye" data-toggle="#loginPw" aria-label="পাসওয়ার্ড দেখুন">👁</button></span></label>
+    <button class="primary" type="submit">নিরাপদে লগইন করুন</button>
+    <p class="message" id="loginMessage" role="alert"></p>
+    <a class="back" href="/">← ওয়েবসাইটে ফিরে যান</a>
+  </form>
+</section>
+
+<div class="admin-shell" id="appView" hidden>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="/"><span class="mark"><svg viewBox="0 0 24 24"><path d="M12 2.5c3.6 4.9 6.5 8.2 6.5 11.9a6.5 6.5 0 0 1-13 0c0-3.7 2.9-7 6.5-11.9z"/></svg></span><span><small>GREEN SOCIAL SERVICES</small><b>ক্লাব অ্যাডমিন</b></span></a>
+    <div class="side-label">WORKSPACE</div>
+    <button class="side-link active" data-view="overview"><i>▦</i>ড্যাশবোর্ড</button>
+    <button class="side-link" data-view="donors"><i>♡</i>ডোনার ম্যানেজমেন্ট<em class="badge" id="badgeDonors" hidden></em></button>
+    <button class="side-link" data-view="requests"><i>✚</i>রক্তের আবেদন<em class="badge" id="badgeRequests" hidden></em></button>
+    <button class="side-link" data-view="settings"><i>⚙</i>সেটিংস</button>
+    <div class="side-bottom"><a href="/">← ওয়েবসাইট দেখুন</a><button id="logoutBtn" class="logout">লগআউট ↗</button></div>
+  </aside>
+  <div class="side-backdrop" id="sideBackdrop"></div>
+  <main class="main">
+    <header class="admin-top">
+      <button class="hamb" id="hamb" aria-label="মেনু">☰</button>
+      <div><small>GREEN SOCIAL SERVICES & BLOOD DONATION CLUB</small><h1 id="pageTitle">ড্যাশবোর্ড</h1></div>
+      <button class="bell" id="bell" title="নতুন আবেদনের নোটিফিকেশন চালু করুন" aria-label="নোটিফিকেশন">🔔<span id="bellState">বন্ধ</span></button>
+      <div class="admin-user"><span class="avatar" id="avatar">A</span><span id="adminName">অ্যাডমিন</span></div>
+    </header>
+
+    <div class="view active" id="overviewView">
+      <div class="welcome"><div><span class="eyebrow">OVERVIEW</span><h2>স্বাগতম, <em id="welcomeName">অ্যাডমিন</em></h2><p>ডোনার ও রক্তের আবেদনগুলোর সারসংক্ষেপ।</p></div><span class="welcome-icon"><svg viewBox="0 0 24 24"><path d="M12 2.5c3.6 4.9 6.5 8.2 6.5 11.9a6.5 6.5 0 0 1-13 0c0-3.7 2.9-7 6.5-11.9z"/></svg></span></div>
+      <div class="metric-grid" id="metrics"></div>
+      <div class="panel urgent"><div class="panel-head"><h3>🚨 অপেক্ষমাণ জরুরি আবেদন</h3><span>URGENT REQUESTS</span></div><div id="urgentList" class="urgent-list"></div></div>
+      <div class="panel"><div class="panel-head"><h3>রক্তের গ্রুপ অনুযায়ী অনুমোদিত ডোনার</h3><span>DONORS BY GROUP</span></div><div class="bars" id="groupBars"></div></div>
+      <div class="panel"><div class="panel-head"><h3>দ্রুত কাজ</h3><span>QUICK ACTIONS</span></div><div class="quick-actions"><button data-go="donors" data-status="pending">অপেক্ষমাণ ডোনার যাচাই করুন →</button><button data-go="requests" data-status="pending">অপেক্ষমাণ জরুরি আবেদন →</button></div></div>
+    </div>
+
+    <div class="view" id="donorsView"><div class="panel">
+      <div class="panel-head"><h3>ডোনার তালিকা</h3><span>ব্যক্তিগত তথ্য — শুধু অ্যাডমিন</span></div>
+      <div class="filters">
+        <input type="search" id="donorSearch" placeholder="নাম / ফোন / এলাকা খুঁজুন…">
+        <select id="donorStatus"><option value="">সব অবস্থা</option><option value="pending">অপেক্ষমাণ</option><option value="approved">অনুমোদিত</option><option value="inactive">নিষ্ক্রিয়</option><option value="rejected">বাতিল</option></select>
+        <select id="donorGroup"><option value="">সব গ্রুপ</option></select>
+        <button class="secondary" id="refreshDonors">↻ রিফ্রেশ</button>
+        <button class="secondary" id="exportDonors">⬇ CSV</button>
+      </div>
+      <div class="table-wrap"><table class="rt"><thead><tr><th>নাম ও বিভাগ</th><th>গ্রুপ</th><th>যোগাযোগ</th><th>এলাকা</th><th>শেষ দান</th><th>অবস্থা</th><th>অ্যাকশন</th></tr></thead><tbody id="donorRows"></tbody></table></div>
+    </div></div>
+
+    <div class="view" id="requestsView"><div class="panel">
+      <div class="panel-head"><h3>জরুরি রক্তের আবেদন</h3><span>REQUEST MANAGEMENT</span></div>
+      <div class="filters">
+        <select id="requestStatus"><option value="">সব অবস্থা</option><option value="pending">অপেক্ষমাণ</option><option value="contacted">যোগাযোগ হয়েছে</option><option value="fulfilled">সম্পন্ন</option><option value="cancelled">বাতিল</option></select>
+        <button class="secondary" id="refreshRequests">↻ রিফ্রেশ</button>
+      </div>
+      <div class="table-wrap"><table class="rt"><thead><tr><th>আবেদনকারী</th><th>রক্ত</th><th>হাসপাতাল / জেলা</th><th>প্রয়োজনের সময়</th><th>যোগাযোগ</th><th>অবস্থা</th><th>অ্যাকশন</th></tr></thead><tbody id="requestRows"></tbody></table></div>
+    </div></div>
+
+    <div class="view" id="settingsView"><div class="panel narrow">
+      <div class="panel-head"><h3>পাসওয়ার্ড পরিবর্তন</h3><span>SECURITY</span></div>
+      <form id="pwForm" class="stack">
+        <label>বর্তমান পাসওয়ার্ড<input type="password" name="current" required autocomplete="current-password"></label>
+        <label>নতুন পাসওয়ার্ড (অন্তত ১২ অক্ষর)<input type="password" name="next" required minlength="12" autocomplete="new-password"></label>
+        <label>নতুন পাসওয়ার্ড আবার লিখুন<input type="password" name="again" required minlength="12" autocomplete="new-password"></label>
+        <button class="primary" type="submit">পাসওয়ার্ড বদলান</button>
+        <p class="message" id="pwMessage" role="status"></p>
+      </form>
+    </div></div>
+  </main>
+</div>
+<dialog id="matchDialog" class="match-dialog">
+  <div class="md-head"><div><span class="eyebrow">EMERGENCY MATCH</span><h3 id="mdTitle">ডোনার ম্যাচ</h3><p id="mdSub"></p></div><button class="md-close" id="mdClose" aria-label="বন্ধ করুন">✕</button></div>
+  <div class="md-body">
+    <div class="md-box" id="mdRequester"></div>
+    <h4>মিলে যাওয়া ডোনার <small id="mdCount"></small></h4>
+    <div id="mdDonors" class="md-donors"></div>
+  </div>
+  <div class="md-foot"><button class="secondary" id="mdMark">✓ যোগাযোগ হয়েছে চিহ্নিত করুন</button><small>মেসেজ পাঠালে WhatsApp/SMS অ্যাপে লেখা তৈরি হয়ে খুলবে, আপনি "Send" চাপবেন।</small></div>
+</dialog>
+<div id="adminToast" class="toast" role="status" aria-live="polite"></div>
+</body></html>

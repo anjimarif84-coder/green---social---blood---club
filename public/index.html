@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#062116">
+<meta name="description" content="গ্রিন সোশ্যাল সার্ভিসেস অ্যান্ড ব্লাড ডোনেশন ক্লাব — স্বেচ্ছাসেবী রক্তদাতা নিবন্ধন ও জরুরি রক্তের আবেদন।">
+<title>গ্রিন সোশ্যাল সার্ভিসেস অ্যান্ড ব্লাড ডোনেশন ক্লাব</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23e51e45'/%3E%3Cpath d='M32 12c8 11 14 18 14 26a14 14 0 0 1-28 0c0-8 6-15 14-26z' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script defer src="/places.js"></script>
+<script defer src="/site.js"></script>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"><i></i></div>
+<a class="skip" href="#main">মূল অংশে যান</a>
+<header class="topbar" id="topbar"><div class="container navwrap">
+  <a class="brand" href="/" aria-label="হোম">
+    <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5c3.6 4.9 6.5 8.2 6.5 11.9a6.5 6.5 0 0 1-13 0c0-3.7 2.9-7 6.5-11.9z"/></svg></span>
+    <span><small>GREEN SOCIAL SERVICES</small><b>ব্লাড ডোনেশন ক্লাব</b></span>
+  </a>
+  <button class="menu-toggle" id="menuToggle" aria-label="মেনু খুলুন" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+  <nav id="mainNav" aria-label="প্রধান মেনু">
+    <a href="#about">আমাদের সম্পর্কে</a><a href="#donors">ডোনার তথ্য</a><a href="#how">কীভাবে কাজ করে</a><a href="#tips">পরামর্শ</a><a href="#request">রক্তের আবেদন</a><a href="#faq">প্রশ্নোত্তর</a>
+    <a class="nav-cta" href="#join">ডোনার হোন</a>
+    <a class="nav-login" href="/admin">অ্যাডমিন ↗</a>
+  </nav>
+</div></header>
+
+<main id="main">
+<section class="hero"><div class="hero-glow"></div><div class="particles" id="particles" aria-hidden="true"></div><svg class="ecg" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70H420l25-10 20 10h60l22-48 28 96 26-48h30l20-10 18 10H1440" /></svg><div class="container hero-grid">
+  <div class="hero-copy reveal">
+    <span class="eyebrow"><i></i> GIVE BLOOD · SAVE LIVES</span>
+    <h1 class="split">মানবতার টানে,<br><em>রক্তের বন্ধনে।</em></h1>
+    <p>একটি স্বেচ্ছাসেবী উদ্যোগ — জরুরি মুহূর্তে রক্তদাতা ও রক্তপ্রত্যাশীদের মধ্যে নিরাপদ সংযোগ গড়ে তুলতে আমরা কাজ করি।</p>
+    <div class="hero-actions"><a class="btn btn-red" href="#join">ডোনার হিসেবে যুক্ত হোন <span>→</span></a><a class="btn btn-outline" href="#request">জরুরি রক্তের আবেদন</a></div>
+    <ul class="trust"><li>স্বেচ্ছাসেবী উদ্যোগ</li><li>ফোন নম্বর গোপন</li><li>অ্যাডমিন যাচাইকৃত</li></ul>
+  </div>
+  <div class="hero-art reveal" aria-hidden="true">
+    <div class="pulse p1"></div><div class="pulse p2"></div><div class="ring ring-1"></div><div class="ring ring-2"></div><div class="ring ring-3"></div>
+    <svg class="drop" viewBox="0 0 200 250"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6a85"/><stop offset="1" stop-color="#b80f30"/></linearGradient></defs>
+      <path d="M100 8c44 60 78 98 78 142a78 78 0 0 1-156 0C22 106 56 68 100 8z" fill="url(#dg)"/>
+      <path d="M62 150a38 38 0 0 0 30 37" stroke="#fff" stroke-opacity=".45" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <path d="M100 112v54M73 139h54" stroke="#fff" stroke-width="13" stroke-linecap="round"/></svg>
+    <div class="float-card card-top"><b id="heroDonors">০</b><span>অনুমোদিত ডোনার</span></div>
+    <div class="float-card card-bottom"><span class="live-dot"></span><span>ডোনার আবেদন গ্রহণ চলছে</span></div>
+  </div>
+</div><svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30C240 70 480 0 720 20s480 40 720 0V60H0z" fill="#0b3322"/></svg></section>
+
+<div class="marquee" aria-hidden="true"><div class="track"><span>GIVE BLOOD</span><b>♥</b><span>SAVE LIVES</span><b>♥</b><span>রক্ত দিন, জীবন বাঁচান</span><b>♥</b><span>A+ · A- · B+ · B- · AB+ · AB- · O+ · O-</span><b>♥</b><span>GIVE BLOOD</span><b>♥</b><span>SAVE LIVES</span><b>♥</b><span>রক্ত দিন, জীবন বাঁচান</span><b>♥</b><span>A+ · A- · B+ · B- · AB+ · AB- · O+ · O-</span><b>♥</b></div></div>
+
+<section class="stats-strip"><div class="container stats-grid">
+  <div><b id="statDonors">০</b><span>অনুমোদিত ডোনার</span></div>
+  <div><b>৮</b><span>রক্তের গ্রুপ</span></div>
+  <div><b>ঢাকা</b><span>প্রাথমিক সেবার এলাকা</span></div>
+  <div><b>২৪/৭</b><span>আবেদন জমা দেওয়ার সুবিধা</span></div>
+</div></section>
+
+<section class="section" id="about"><div class="container">
+  <div class="section-heading reveal"><span class="eyebrow red-eyebrow">WHO WE ARE</span><h2>একসাথে, <em>জীবনের পাশে।</em></h2><p>আমাদের লক্ষ্য জরুরি রক্তের প্রয়োজনে যাচাইকৃত তথ্যের ভিত্তিতে দ্রুত ও নিরাপদ যোগাযোগ সহজ করা।</p></div>
+  <div class="feature-grid">
+    <article class="feature-card reveal"><span class="feature-icon green"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span><h3>স্বেচ্ছায় ডোনার নিবন্ধন</h3><p>আপনার সম্মতি নিয়েই তথ্য সংগ্রহ করা হয়। অ্যাডমিন যাচাইয়ের পর ডোনার অনুমোদিত হন।</p></article>
+    <article class="feature-card reveal"><span class="feature-icon red"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.5C1 7.8 3.5 4.5 7 4.5c2 0 3.5 1 5 3 1.5-2 3-3 5-3 3.5 0 6 3.3 4.5 7C19.5 16.4 12 21 12 21z"/></svg></span><h3>জরুরি রক্তের আবেদন</h3><p>রোগীর প্রয়োজনীয় তথ্য জমা দিন। ক্লাবের টিম আবেদন যাচাই করে যোগাযোগ করবে।</p></article>
+    <article class="feature-card reveal"><span class="feature-icon gold"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>গোপনীয়তা সুরক্ষা</h3><p>ডোনারের ব্যক্তিগত ফোন নম্বর পাবলিক তালিকায় কখনো দেখানো হয় না।</p></article>
+  </div>
+</div></section>
+
+<section class="section soft-section" id="donors"><div class="container">
+  <div class="section-heading reveal"><span class="eyebrow red-eyebrow">DONOR NETWORK</span><h2>রক্তের গ্রুপ <em>অনুযায়ী তথ্য।</em></h2><p>অনুমোদিত ডোনারের সংখ্যা দেখুন। ব্যক্তিগত তথ্য গোপন রাখা হয়।</p></div>
+  <div class="group-grid" id="groupStats"></div>
+  <p class="notice">এখানে দেখানো সংখ্যা নিবন্ধিত ও অ্যাডমিন-অনুমোদিত ডোনারের হিসাব। ডোনার পাওয়া নিশ্চিত নয় — জরুরি অবস্থায় হাসপাতালের ব্লাড ব্যাংকের সাথেও যোগাযোগ করুন।</p>
+</div></section>
+
+<section class="section" id="how"><div class="container">
+  <div class="section-heading reveal"><span class="eyebrow red-eyebrow">SIMPLE PROCESS</span><h2>সহজ তিনটি <em>ধাপ।</em></h2></div>
+  <div class="steps">
+    <article class="reveal"><b>01</b><h3>আবেদন জমা দিন</h3><p>ডোনার হিসেবে যুক্ত হতে বা রক্তের আবেদন জানাতে ফর্ম পূরণ করুন।</p></article>
+    <article class="reveal"><b>02</b><h3>তথ্য যাচাই</h3><p>ক্লাবের অ্যাডমিন আবেদন যাচাই করে প্রয়োজনীয় পদক্ষেপ নেবেন।</p></article>
+    <article class="reveal"><b>03</b><h3>যোগাযোগ ও সমন্বয়</h3><p>সম্মতিপ্রাপ্ত ডোনারের সাথে নিরাপদভাবে যোগাযোগের ব্যবস্থা করা হবে।</p></article>
+  </div>
+</div></section>
+
+<section class="section soft-section" id="tips"><div class="container">
+  <div class="section-heading reveal"><span class="eyebrow red-eyebrow">DONOR GUIDE</span><h2>রক্তদানের আগে <em>জেনে রাখুন।</em></h2><p>সাধারণ কিছু পরামর্শ — চূড়ান্ত সিদ্ধান্ত সবসময় ব্লাড ব্যাংকের চিকিৎসাকর্মীর।</p></div>
+  <div class="tips-grid">
+    <article class="tip reveal"><span>💧</span><h3>পর্যাপ্ত পানি পান করুন</h3><p>রক্তদানের আগে ও পরে বেশি করে পানি বা তরল খান।</p></article>
+    <article class="tip reveal"><span>🍚</span><h3>হালকা খাবার খান</h3><p>খালি পেটে না গিয়ে আগে হালকা ও পুষ্টিকর খাবার খেয়ে নিন।</p></article>
+    <article class="tip reveal"><span>🛌</span><h3>ভালো ঘুম ও বিশ্রাম</h3><p>আগের রাতে ঠিকমতো ঘুমান। দান শেষে কিছুক্ষণ বিশ্রাম নিন।</p></article>
+    <article class="tip reveal"><span>🩺</span><h3>স্বাস্থ্য যাচাই</h3><p>অসুস্থ থাকলে বা ওষুধ চললে আগেই চিকিৎসাকর্মীকে জানান।</p></article>
+  </div>
+</div></section>
+
+<section class="section request-section" id="request"><div class="container form-layout">
+  <div class="form-intro reveal from-left"><span class="eyebrow">URGENT BLOOD REQUEST</span><h2>জরুরি রক্তের <em>প্রয়োজন?</em></h2><p>রোগীর তথ্য দিয়ে আবেদন জমা দিন। ক্লাবের টিম আবেদন যাচাই করে আপনার সাথে যোগাযোগ করবে।</p><div class="callout"><b>⚠ গুরুত্বপূর্ণ</b>জরুরি চিকিৎসার ক্ষেত্রে আবেদন জমা দেওয়ার অপেক্ষা না করে নিকটস্থ হাসপাতাল ও ব্লাড ব্যাংকের সাথে সরাসরি যোগাযোগ করুন।</div>
+    <div class="prep"><h4>আবেদনের আগে হাতের কাছে রাখুন</h4><ul><li><i>১</i>রোগীর নাম ও রক্তের গ্রুপ</li><li><i>২</i>হাসপাতালের নাম ও ওয়ার্ড/কেবিন</li><li><i>৩</i>কতক্ষণের মধ্যে ও কত ব্যাগ রক্ত লাগবে</li><li><i>৪</i>যে নম্বরে ফোন ধরা যাবে</li></ul></div></div>
+  <form class="form-card reveal from-right" id="requestForm" novalidate><h3>রক্তের আবেদন ফর্ম</h3><div class="form-grid">
+    <label>আবেদনকারীর নাম *<input name="requester_name" required maxlength="100" autocomplete="name"></label>
+    <label>মোবাইল নম্বর *<input name="phone" required inputmode="tel" placeholder="01XXXXXXXXX" autocomplete="tel"></label>
+    <label>রক্তের গ্রুপ *<select name="blood_group" required><option value="">বেছে নিন</option></select></label>
+    <label>কত ব্যাগ প্রয়োজন *<input name="units" type="number" min="1" max="20" value="1" required></label>
+    <label>হাসপাতালের নাম *<input name="hospital" required maxlength="160" list="hospitalList" autocomplete="off" placeholder="লিখুন বা তালিকা থেকে বাছুন"></label>
+    <label>জেলা *<input name="district" value="ঢাকা" required maxlength="80" list="districtList" autocomplete="off"></label>
+    <label class="wide">কখন প্রয়োজন? *<input name="needed_at" type="datetime-local" required></label>
+    <label class="wide">রোগীর সমস্যা ও অতিরিক্ত তথ্য<textarea name="details" rows="3" maxlength="1000" placeholder="রোগীর সমস্যা (যেমন: জরায়ু অপারেশন), ওয়ার্ড/কেবিন বা যোগাযোগের সুবিধাজনক সময়"></textarea></label>
+  </div><button class="btn btn-red" type="submit">আবেদন জমা দিন <span>→</span></button><p class="form-message" id="requestMessage" role="status"></p></form>
+</div></section>
+
+<section class="section soft-section" id="join"><div class="container form-layout">
+  <div class="form-intro reveal from-left"><span class="eyebrow red-eyebrow">BECOME A DONOR</span><h2>আপনার সম্মতিই <em>প্রথম ধাপ।</em></h2><p>ডোনার হিসেবে যুক্ত হতে নিচের তথ্য দিন। অ্যাডমিন যাচাই ও অনুমোদনের পর আপনার তথ্য অভ্যন্তরীণ ডোনার তালিকায় যুক্ত হবে।</p>
+    <ul class="check-list"><li>আপনার ফোন নম্বর পাবলিকভাবে দেখানো হবে না</li><li>তথ্য কেবল অনুমোদিত অ্যাডমিন দেখতে পারবেন</li><li>চাইলে ক্লাবের সাথে যোগাযোগ করে তথ্য সংশোধন বা মুছে ফেলতে পারবেন</li></ul></div>
+  <form class="form-card reveal from-right" id="donorForm" novalidate><h3>ডোনার নিবন্ধন ফর্ম</h3><div class="form-grid">
+    <label>পুরো নাম *<input name="name" required maxlength="100" autocomplete="name"></label>
+    <label>মোবাইল নম্বর *<input name="phone" required inputmode="tel" placeholder="01XXXXXXXXX" autocomplete="tel"></label>
+    <label>রক্তের গ্রুপ *<select name="blood_group" required><option value="">বেছে নিন</option></select></label>
+    <label>জেলা *<input name="district" value="ঢাকা" required maxlength="80" list="districtList" autocomplete="off"></label>
+    <label>এলাকা/থানা<input name="area" maxlength="100" list="areaList" autocomplete="off" placeholder="লিখুন বা তালিকা থেকে বাছুন"></label>
+    <label>বিভাগ ও ব্যাচ<input name="department" maxlength="120" placeholder="ঐচ্ছিক"></label>
+    <label class="wide">শেষ রক্তদানের তারিখ (জানা থাকলে)<input name="last_donation" type="date"></label>
+    <label class="wide consent"><input type="checkbox" name="consent" required><span>আমি সম্মতি দিচ্ছি যে ক্লাব আমার দেওয়া তথ্য ডোনার সমন্বয়ের কাজে ব্যবহার করবে। আমার ফোন নম্বর পাবলিকভাবে প্রকাশ করা হবে না। *</span></label>
+  </div><button class="btn btn-red" type="submit">ডোনার আবেদন পাঠান <span>→</span></button><p class="form-message" id="donorMessage" role="status"></p></form>
+</div></section>
+
+<section class="cta"><div class="container cta-box reveal"><div><h2>আপনার এক ব্যাগ রক্ত<br>কারও জীবন বাঁচাতে পারে।</h2><p>আজই ডোনার হিসেবে নাম লেখান — মাত্র ২ মিনিট।</p></div><a class="btn btn-white" href="#join">ডোনার হোন <span>→</span></a></div></section>
+
+<section class="section" id="faq"><div class="container faq-wrap">
+  <div class="section-heading reveal"><span class="eyebrow red-eyebrow">HELP CENTER</span><h2>সাধারণ <em>জিজ্ঞাসা।</em></h2></div>
+  <details><summary>আমার ফোন নম্বর কি সবাই দেখতে পাবে?</summary><p>না। ফোন নম্বর কেবল অনুমোদিত অ্যাডমিন দেখতে পারবেন এবং ডোনার সমন্বয়ের জন্য ব্যবহার করবেন।</p></details>
+  <details><summary>নিবন্ধন করলেই কি ডোনার তালিকায় নাম উঠবে?</summary><p>না। আবেদন জমা হওয়ার পর অ্যাডমিন যাচাই ও অনুমোদন করলে ডোনার হিসেবে গণ্য হবেন।</p></details>
+  <details><summary>ওয়েবসাইটে রক্তের গ্রুপের সামঞ্জস্য কি চূড়ান্ত?</summary><p>না। এটি কেবল সাধারণ শিক্ষামূলক তথ্য। রক্ত সঞ্চালনের আগে হাসপাতাল/ব্লাড ব্যাংকের পরীক্ষা ও ক্রসম্যাচ জরুরি।</p></details>
+  <details><summary>জরুরি আবেদন করলে কি রক্ত নিশ্চিত পাওয়া যাবে?</summary><p>না। আবেদন পাওয়া মানেই ডোনার বা রক্ত পাওয়া নিশ্চিত নয়। হাসপাতালের ব্লাড ব্যাংকের সাথেও যোগাযোগ করুন।</p></details>
+</div></section>
+</main>
+
+<footer><div class="container footer-grid">
+  <div><a class="brand" href="/"><span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5c3.6 4.9 6.5 8.2 6.5 11.9a6.5 6.5 0 0 1-13 0c0-3.7 2.9-7 6.5-11.9z"/></svg></span><span><small>GREEN SOCIAL SERVICES</small><b>ব্লাড ডোনেশন ক্লাব</b></span></a><p class="foot-note">মানবতার সেবায় একটি স্বেচ্ছাসেবী উদ্যোগ।</p></div>
+  <div><b>যোগাযোগ</b><p>ইমেইল: <a href="mailto:gssbdc.bd@gmail.com">gssbdc.bd@gmail.com</a><br><a href="https://www.facebook.com/share/1HDL2wFtZG/" target="_blank" rel="noopener noreferrer">Facebook পেজ</a></p></div>
+  <div><b>গুরুত্বপূর্ণ</b><p>রক্তদানের চূড়ান্ত যোগ্যতা ও রক্ত সঞ্চালন-সংক্রান্ত সিদ্ধান্ত চিকিৎসাকর্মীর।</p></div>
+</div><div class="container copyright">© <span id="year"></span> Green Social Services & Blood Donation Club</div></footer>
+<button class="to-top" id="toTop" aria-label="উপরে যান" hidden>↑</button>
+<datalist id="hospitalList"></datalist><datalist id="areaList"></datalist><datalist id="districtList"></datalist>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>
