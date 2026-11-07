@@ -86,8 +86,8 @@ async function initDatabase() {
 
     CREATE TABLE IF NOT EXISTS sessions (
       sid TEXT PRIMARY KEY,
-      sess TEXT NOT NULL,
-      expire BIGINT NOT NULL
+      sess JSON NOT NULL,
+      expire TIMESTAMPTZ NOT NULL
     );
   `);
 
@@ -113,23 +113,31 @@ async function initDatabase() {
 class PostgresStore extends session.Store {
   get(sid, callback) {
     pool.query(
-      "SELECT sess FROM sessions WHERE sid=$1 AND expire>$2",
-      [sid, Date.now()]
+      "SELECT sess FROM sessions WHERE sid=$1 AND expire > NOW()",
+      [sid]
     ).then(result => {
-      callback(null, result.rows[0] ? JSON.parse(result.rows[0].sess) : null);
+      const data = result.rows[0]?.sess;
+      callback(
+        null,
+        data
+          ? (typeof data === "string" ? JSON.parse(data) : data)
+          : null
+      );
     }).catch(callback);
   }
 
   set(sid, sess, callback) {
-    const expire = sess.cookie && sess.cookie.expire
-      ? new Date(sess.cookie.expire).getTime()
-      : Date.now() + 4 * 60 * 60 * 1000;
+    const expire = sess.cookie?.expires
+      ? new Date(sess.cookie.expires)
+      : new Date(Date.now() + 4 * 60 * 60 * 1000);
 
     pool.query(`
-      INSERT INTO sessions (sid,sess,expire)
-      VALUES ($1,$2,$3)
+      INSERT INTO sessions (sid, sess, expire)
+      VALUES ($1, $2, $3)
       ON CONFLICT (sid)
-      DO UPDATE SET sess=EXCLUDED.sess, expire=EXCLUDED.expire
+      DO UPDATE SET
+        sess = EXCLUDED.sess,
+        expire = EXCLUDED.expire
     `, [sid, JSON.stringify(sess), expire])
       .then(() => callback && callback(null))
       .catch(err => callback && callback(err));
@@ -147,7 +155,7 @@ class PostgresStore extends session.Store {
 }
 
 setInterval(() => {
-  pool.query("DELETE FROM sessions WHERE expire<$1", [Date.now()])
+  pool.query("DELETE FROM sessions WHERE expire < NOW()")
     .catch(err => console.error("Session cleanup error:", err.message));
 }, 60 * 60 * 1000).unref();
 
